@@ -64,7 +64,7 @@ if (submitcheck('formhash') && !defined('IN_MOBILE')) {
 	// 判断新用户名 by UC
 	loaducenter();
 	$ucresult = uc_user_checkname($newusername);
-	if ($ucresult !== 1) {
+	if ($ucresult != '1') {
 		$ucerrors = [
 			'-1' => 'profile_username_illegal',
 			'-2' => 'profile_username_protect',
@@ -213,7 +213,7 @@ function changeusername($userid, $oldusername, $newusername) {
 		$tables = explode("\n", $lmt_conf['tables']);
 		foreach($tables as $v){
 			$table = explode(',', $v);
-			if (count($table) === 3) {
+			if (count($table) == 3) {
 				$tables6[] = $table;
 			}
 		}
