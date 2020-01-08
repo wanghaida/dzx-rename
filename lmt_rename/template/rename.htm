@@ -1,0 +1,94 @@
+<tr>
+    <th>新用户名</th>
+    <td>
+        <input
+            type="text" name="newusername" value="" class="px" tabindex="1"
+            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
+        >
+        <div class="rq mtn" id="showerror_newusername"></div>
+        <p class="d"></p>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <th>&nbsp;</th>
+    <td colspan="2">
+        <input type="hidden" name="profilesubmit" value="true">
+        <button
+            type="submit" name="profilesubmitbtn" id="profilesubmitbtn" value="true" class="pn pnc"
+            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
+        >
+            <strong>保存</strong>
+        </button>
+        <span id="submit_result" class="rq"></span>
+    </td>
+</tr>
+
+<style>
+    .lmt_rename-tips {
+        padding: 1em 1em 0;
+        border: 1px dashed #f26c4f;
+    }
+    .lmt_rename-tips em {
+        color: #f26c4f;
+    }
+    .lmt_rename-tips div {
+        margin: 1em 0px;
+    }
+</style>
+
+<!-- 允许用户组错误 -->
+<!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups'])}-->
+<tr>
+    <td colspan="3">
+        <div class="lmt_rename-tips">
+            <em>错误提示：</em>
+            <div>
+                抱歉，您当前所在的用户组没有权限使用修改用户名功能
+            </div>
+            <em>允许用户组：</em>
+            <div>
+                <ul class="cl">
+                    <!--{eval $i = 1;}-->
+                    <!--{loop $groups_title $group}-->
+                    <li class="z">
+                        {$group}<!--{if $i < $groups_number}-->，<!--{/if}-->
+                    </li>
+                    <!--{eval $i++;}-->
+                    <!--{/loop}-->
+                </ul>
+            </div>
+        </div>
+    </td>
+</tr>
+<!-- 消耗积分项错误 -->
+<!--{elseif $lmt_conf['credit_unit'] && $lmt_conf['credit_number']}-->
+<tr>
+    <td colspan="3">
+        <div class="lmt_rename-tips">
+            <!--{if $credit_number < $lmt_conf['credit_number']}-->
+            <em>错误提示：</em>
+            <div>
+                抱歉，您的积分不足无法使用修改用户名功能
+            </div>
+            <!--{/if}-->
+            <em>消耗积分项：</em>
+            <div>
+                每次修改消耗 {$lmt_conf['credit_number']}
+                {$_G['setting']['extcredits'][$lmt_conf['credit_unit']]['unit']}{$_G['setting']['extcredits'][$lmt_conf['credit_unit']]['title']}
+            </div>
+        </div>
+    </td>
+</tr>
+<!--{/if}-->
+
+<!--{if $lmt_conf['tips']}-->
+<tr>
+    <td colspan="3">
+        <div class="lmt_rename-tips">
+            <em>友情提示：</em>
+            <div>{$lmt_conf['tips']}</div>
+        </div>
+    </td>
+</tr>
+<!--{/if}-->
