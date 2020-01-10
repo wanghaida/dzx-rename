@@ -41,7 +41,7 @@
 				</item>
 			</item>
 		</item>
-		<item id="version"><![CDATA[X3.4]]></item>
+		<item id="version"><![CDATA[X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[2]]></item>
