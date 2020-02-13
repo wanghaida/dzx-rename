@@ -3,7 +3,7 @@
     <td>
         <input
             type="text" name="newusername" value="" class="px" tabindex="1"
-            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
+            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || $lmt_conf['credit_unit'] && ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
         >
         <div class="rq mtn" id="showerror_newusername"></div>
         <p class="d"></p>
@@ -16,7 +16,7 @@
         <input type="hidden" name="profilesubmit" value="true">
         <button
             type="submit" name="profilesubmitbtn" id="profilesubmitbtn" value="true" class="pn pnc"
-            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
+            <!--{if !in_array($_G['member']['groupid'], $lmt_conf['groups']) || $lmt_conf['credit_unit'] && ($credit_number < $lmt_conf['credit_number'])}--> disabled="disabled"<!--{/if}-->
         >
             <strong>保存</strong>
         </button>

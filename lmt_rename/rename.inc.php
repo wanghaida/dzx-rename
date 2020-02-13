@@ -78,7 +78,7 @@ if (submitcheck('formhash') && !defined('IN_MOBILE')) {
 
 	// 修改积分
 	if ($lmt_conf['credit_unit'] && $lmt_conf['credit_number']) {
-		updatemembercount($userid, [$lmt_conf['credit_unit'] => '-'.$lmt_conf['credit_number']], true, '', $userid, '修改用户名', '修改用户名', '修改用户名');
+		updatemembercount($userid, [$lmt_conf['credit_unit'] => '-'.$lmt_conf['credit_number']], true, '', $userid, '修改用户名', '修改用户名', '修改用户名：「'.$oldusername.'」→「'.$newusername.'」');
 	}
 
 	// 记录日志
